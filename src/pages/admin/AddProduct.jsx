@@ -4,6 +4,7 @@ import productsFromFile from "../../data/products.json"
 
 function AddProduct() {
 
+
   const idRef= useRef()
   const titleRef= useRef()
   const priceRef= useRef()
@@ -13,18 +14,30 @@ function AddProduct() {
   const ratingRateRef= useRef()
   const ratingCountRef= useRef()
 
-  const product = {
-    "id": idRef.current.value,
+  const add = () => {
+    const product= {
+    "id": Number(idRef.current.value),
     "title": titleRef.current.value,
-    "price": priceRef.current.value,
+    "price": Number(priceRef.current.value),
     "description": descriptionRef.current.value,
     "category": categoryRef.current.value,
     "image": imageRef.current.value,
-  }
+    "rating": {
+      "rate": Number(ratingRateRef.current.value),
+     "count": Number(ratingCountRef.current.value) 
+    }
+    }
     productsFromFile.push(product)
   
-
-
+      idRef.current.value = ""
+      titleRef.current.value = ""
+      priceRef.current.value = ""
+      descriptionRef.current.value = ""
+      categoryRef.current.value = ""
+      imageRef.current.value = ""
+      ratingRateRef.current.value = ""
+      ratingCountRef.current.value = ""
+}
 
 
   return (
