@@ -24,8 +24,10 @@ function AddProduct() {
     "image": imageRef.current.value,
     "rating": {
       "rate": Number(ratingRateRef.current.value),
-     "count": Number(ratingCountRef.current.value) 
+      "count": Number(ratingCountRef.current.value) 
     }
+    // "rating.rate": Number(ratingRateRef.current.value), <--- see oli vale kood
+    // "rating.count": Number(ratingCountRef.current.value)
     }
     productsFromFile.push(product)
   

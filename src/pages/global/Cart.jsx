@@ -31,7 +31,7 @@ function Cart() {
       <br />
       <br />
       {products.map((product,index)=>
-      <div key={product.id}>
+      <div key={index}>
         <img style={{width: "100px"}} src={product.image} alt="" />
         <div>{product.title}</div>
         <div>{product.price} €</div> <br />
