@@ -4,38 +4,19 @@ import picturesJSON from "../data/pictures.json"
 function CarouselGallery() {
   return (
     <Carousel data-bs-theme="dark">
-      <Carousel.Item>
-        <img
-          src="https://picsum.photos/id/137/500/200"
-          alt="First slide"
-        />
+      {picturesJSON.map(picture=>(
+        <Carousel.Item key={picture.src}>
+          <img
+          src= {picture.src}
+          alt= {picture.alt}
+          />
         <Carousel.Caption>
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h5>{picture.header}</h5>
+          <p>{picture.text}</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
-        <img
-          src="https://picsum.photos/id/937/500/200"
-          alt="Second slide"
-        />
-        <Carousel.Caption>
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          src="https://picsum.photos/id/837/500/200"
-          alt="Third slide"
-        />
-        <Carousel.Caption>
-          <h5>Third slide label</h5>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
+      ))}
+     
     </Carousel>
   );
 }
