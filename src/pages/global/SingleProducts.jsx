@@ -6,6 +6,7 @@ function SingleProducts() {
 
   const {id} = useParams ()
   const found = productsFromFile.find(product => String(product.id) === id)
+  /// on sama, mis (product => product.id === Number(id))
 
   if (found === undefined) {
     return <div>Item Not Found</div>
@@ -21,6 +22,7 @@ function SingleProducts() {
           <div>Category: {found.category}</div>
           <div>Product Rating Rate: {found.rating.rate}</div>
           <div>Product Rating Count: {found.rating.count}</div>
+          {!found.active && <i>Product is inactive</i>}
     </div>
   )
 }

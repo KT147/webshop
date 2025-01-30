@@ -28,7 +28,7 @@ function Signup() {
       <input ref={passwordRef} type="password" /><br />
       <label>Confirm Password</label><br />
       <input ref={passwordRef} type="password" /><br /><br />
-      <button>Sign Up</button>
+      <button className="button">Sign Up</button>
     </div>
   )
 }

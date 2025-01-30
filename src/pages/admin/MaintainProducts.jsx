@@ -1,6 +1,7 @@
 import { useRef, useState } from "react"
 import productsFromList from "../../data/products.json"
 import { ToastContainer, toast } from 'react-toastify';
+import styles from  "../../css/MaintainProducts.module.css"
 
 function MaintainProducts() {
 
@@ -8,15 +9,18 @@ function MaintainProducts() {
 
   const searchRef = useRef()
 
-  const deleteItem = (index) => {
-    products.splice(index,1)
-    setProducts(products.slice())
-    localStorage.setItem(("cart"),JSON.stringify(products))
+  const deleteItem = (id) => {
+    const index = productsFromList.findIndex(product => product.id === id)
+    productsFromList.splice(index,1)
+    setProducts(productsFromList.slice())
     toast.success("Item successfully deleted!")
   }
 
   const search = () => {
-    const result= productsFromList.filter(product => product.title.toLowerCase().includes(searchRef.current.value.toLowerCase()))
+    const result= productsFromList.filter(product => 
+      product.title.toLowerCase().includes(searchRef.current.value.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchRef.current.value.toLowerCase())
+    )
     setProducts(result)
   }
 
@@ -25,8 +29,8 @@ function MaintainProducts() {
       <label>Search by Item Name:</label>
       <input onChange={search} ref={searchRef} type="text" />
       <br /><br />
-      {products.map((product,index)=>
-        <div key={product.id}>
+      {products.map(product=>
+        <div key={product.id} className={product.active ? styles.active : styles.inactive}>
           <img style={{height:"100px"}} src={product.image} alt="" />
           <div>ID: {product.id}</div>
           <div>Title: {product.title}</div>
@@ -40,7 +44,7 @@ function MaintainProducts() {
                        <td>Count: {product.rating.count}</td></tr></tbody>
           </table>
           <br />
-          <button onClick={() => deleteItem (index)}>Delete</button>
+          <button className="button" onClick={() => deleteItem (product.id)}>Delete</button>
           <br /><br /><br /><br /><br /><br />
         </div>)}
         <ToastContainer

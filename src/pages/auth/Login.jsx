@@ -13,7 +13,7 @@ function Login() {
       <input ref={usernameRef} type="text" /><br />
       <label>Password</label><br />
       <input ref={passwordRef} type="password" /><br /><br />
-      <button>Login</button>
+      <button className="button">Login</button>
     </div>
   )
 }

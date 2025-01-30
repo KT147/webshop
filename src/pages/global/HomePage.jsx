@@ -2,6 +2,8 @@ import { useState } from "react";
 import productsFromFile from "../../data/products.json"
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
+import CarouselGallery from "../../components/CarouselGallery";
+import styles from "../../css/HomePage.module.css"
 
 function HomePage() {
 
@@ -70,30 +72,31 @@ function HomePage() {
 
   return (
     <div className="products">
+      <CarouselGallery/>
       <br />
       <span>Sort From:</span>
-      <button onClick={sortAZ}>A-Z</button>
-      <button onClick={sortZA}>Z-A</button>
-      <button onClick={priceIncrease}>Price Increasing</button>
-      <button onClick={priceDecrease}>Price Decreasing</button>
-      <button onClick={ratingIncrease}>Rating Increasing</button>
-      <button onClick={ratingDecrease}>Rating Decreasing</button>
+      <button className="button" onClick={sortAZ}>A-Z</button>
+      <button className="button" onClick={sortZA}>Z-A</button>
+      <button className="button" onClick={priceIncrease}>Price Increasing</button>
+      <button className="button" onClick={priceDecrease}>Price Decreasing</button>
+      <button className="button" onClick={ratingIncrease}>Rating Increasing</button>
+      <button className="button" onClick={ratingDecrease}>Rating Decreasing</button>
       <br /> <br />
       <span>Filter by Category:</span>
-      <button onClick={filterMenClothes}>Men&apos;s Clothing</button>
-      <button onClick={filterWomenClothes}>Women&apos;s Clothing</button>
-      <button onClick={filterElectronics}>Electronics</button>
-      <button onClick={filterJewelry}>Jewelry</button>
-      <button onClick={resetToOriginal}>Reset to Original State</button>
+      <button className="button" onClick={filterMenClothes}>Men&apos;s Clothing</button>
+      <button className="button" onClick={filterWomenClothes}>Women&apos;s Clothing</button>
+      <button className="button" onClick={filterElectronics}>Electronics</button>
+      <button className="button" onClick={filterJewelry}>Jewelry</button>
+      <button className="button" onClick={resetToOriginal}>Reset to Original State</button>
       <br /><br /><br />
       {products.map(product=>
         <div key={product.id}>
-          <img style={{width: "100px"}} src={product.image} alt="" />
+          <img className={product.active ? styles.image : styles.inactive_image} src={product.image} alt="" />
           <div>{product.title}</div>
           <div>{product.price} €</div>
-          <button onClick={()=> addToCart(product)}>Add to Cart</button>
-          <br /><br />
-          <Link to={"/product/" + product.id}><button>See More</button></Link>
+          <button disabled={!product.active} className="button" onClick={()=> addToCart(product)}>Add to Cart</button>
+          <br />
+          <Link to={"/product/" + product.id}><button className="button">See More</button></Link>
           <br /><br /><br />
         </div>)}
         <ToastContainer

@@ -61,7 +61,7 @@ function AddProduct() {
       <input ref={ratingRateRef} type="number" /><br /><br />
       <label>Rating Count:</label><br />
       <input ref={ratingCountRef} type="number" /><br /><br />
-      <button onClick={add}>Add Item</button>
+      <button className="button" onClick={add}>Add Item</button>
     </div>
   )
 }

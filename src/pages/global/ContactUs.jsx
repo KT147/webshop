@@ -29,7 +29,7 @@ export const ContactUs = () => {
       <input type="email" name="user_email" /><br />
       <label>Message</label><br />
       <textarea name="message" /><br />
-      <input type="submit" value="Send" />
+      <input className="button" type="submit" value="Send" />
     </form>
   );
 };

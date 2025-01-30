@@ -1,8 +1,17 @@
 import { useState } from "react"
+import { useEffect } from "react";
 
 
 function Cart() {
   const [products, setProducts] = useState(JSON.parse(localStorage.getItem("cart")) || [] );
+
+  const [parcelMachines, setParcelMachines] = useState([]);
+
+  useEffect(() => {
+    fetch("https://www.omniva.ee/locations.json")
+    .then(res => res.json())
+    .then(json => setParcelMachines(json))
+  }, []);
 
 
   const deleteItem = (index) =>{
@@ -37,6 +46,16 @@ function Cart() {
         <div>{product.price} €</div> <br />
         <button onClick={() => deleteItem(index)}>Delete item</button> <br /><br />
       </div>)}
+
+      <select>
+        {parcelMachines
+            .filter(pm => pm.A0_NAME === "EE")
+            .map(pm=>
+          <option key={pm.NAME}>
+            {pm.NAME}
+          </option>
+        )}
+      </select>
     </div>
   )
 }
