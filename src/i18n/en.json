@@ -1,0 +1,18 @@
+{
+    "nav.login" : "Login",
+    "nav.signup": "Sign up",
+    "nav.contact": "Contact",
+    "nav.cart": "Cart",
+    "nav.shops": "Shops",
+    "nav.webshop": "Webshop",
+    "home.priceIncrease": "Price Increasing",
+    "home.priceDecrease": "Price Decreasing",
+    "home.ratingIncreasing": "Rating Increasing",
+    "home.ratingDecreasing": "Rating Decreasing",
+    "home.sort": "Sort from:",
+    "home.menclothes": "Men's Clothing",
+    "home.womenclothing": "Women's Clothing",
+    "home.electronics": "Electronics",
+    "home.jewelry": "Jewelry",
+    "home.reset": "Reset to Original State"
+}

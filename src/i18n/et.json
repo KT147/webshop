@@ -1,0 +1,18 @@
+{
+    "nav.login" : "Logi sisse",
+    "nav.signup": "Registreeru",
+    "nav.contact": "Võta ühendust",
+    "nav.cart": "Ostukorv",
+    "nav.shops": "Poed",
+    "nav.webshop": "Veebipood",
+    "home.priceIncrease": "Hinnad kasvavalt",
+    "home.priceDecrease": "Hinnad kahanevalt",
+    "home.ratingIncreasing": "Hinnangud kasvavalt",
+    "home.ratingDecreasing": "Hinnangud kahanevalt",
+    "home.sort": "Sorteeri:",
+    "home.menclothes": "Meeste riided",
+    "home.womenclothing": "Naiste riided",
+    "home.electronics": "Elektroonika",
+    "home.jewelry": "Ehted",
+    "home.reset": "Taasta algseis"
+}

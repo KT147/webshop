@@ -3,9 +3,12 @@ import productsFromFile from "../../data/products.json"
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import CarouselGallery from "../../components/CarouselGallery";
-import styles from "../../css/HomePage.module.css"
+import styles from "../../css/HomePage.module.css";
+import { useTranslation } from 'react-i18next';
 
 function HomePage() {
+
+  const { t } = useTranslation();
 
   const [products, setProducts] = useState(productsFromFile);
 
@@ -74,20 +77,20 @@ function HomePage() {
     <div className="products">
       <CarouselGallery/>
       <br />
-      <span>Sort From:</span>
+      <span>{t("home.sort")}</span>
       <button className="button" onClick={sortAZ}>A-Z</button>
       <button className="button" onClick={sortZA}>Z-A</button>
-      <button className="button" onClick={priceIncrease}>Price Increasing</button>
-      <button className="button" onClick={priceDecrease}>Price Decreasing</button>
-      <button className="button" onClick={ratingIncrease}>Rating Increasing</button>
-      <button className="button" onClick={ratingDecrease}>Rating Decreasing</button>
+      <button className="button" onClick={priceIncrease}>{t("home.priceIncrease")}</button>
+      <button className="button" onClick={priceDecrease}>{t("home.priceDecrease")}</button>
+      <button className="button" onClick={ratingIncrease}>{t("home.ratingIncreasing")}</button>
+      <button className="button" onClick={ratingDecrease}>{t("home.ratingDecreasing")}</button>
       <br /> <br />
       <span>Filter by Category:</span>
-      <button className="button" onClick={filterMenClothes}>Men&apos;s Clothing</button>
-      <button className="button" onClick={filterWomenClothes}>Women&apos;s Clothing</button>
-      <button className="button" onClick={filterElectronics}>Electronics</button>
-      <button className="button" onClick={filterJewelry}>Jewelry</button>
-      <button className="button" onClick={resetToOriginal}>Reset to Original State</button>
+      <button className="button" onClick={filterMenClothes}>{t("home.menclothes")}</button>
+      <button className="button" onClick={filterWomenClothes}>{t("home.womenclothing")}</button>
+      <button className="button" onClick={filterElectronics}>{t("home.electronics")}</button>
+      <button className="button" onClick={filterJewelry}>{t("home.jewelry")}</button>
+      <button className="button" onClick={resetToOriginal}>{t("home.reset")}</button>
       <br /><br /><br />
       {products.map(product=>
         <div key={product.id}>
