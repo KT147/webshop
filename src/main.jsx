@@ -27,7 +27,7 @@ createRoot(document.getElementById('root')).render(
 // 9. API
 // 10. Viimast korda veebipoodi: tõlked, Bootstrap, MUI, e-maili saatmine.
 // 11. Webshopi algus. CSS moodulid, otsing. karussell-galerii. Pakiautomaadid. Leaflet
-// 12. E 03.02 Pakiautomaadi nupud
+// 12. Leaflet nupud. Pakiautomaadi nupud. Leaflet vaate muutmine
 // 13. K 05.02
 // 14. E 10.02
 // 15. E 17.02
@@ -36,4 +36,6 @@ createRoot(document.getElementById('root')).render(
 // 18. N 13.03 
 
 // KOJU:
-// EditProduct, Carousel-gallery pildid failist. Tõlge. Bakery-shop
+// EditProductis Dropdownist kategooria.
+// Maintainshops
+// proovitöö

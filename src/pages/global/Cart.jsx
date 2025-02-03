@@ -7,6 +7,8 @@ function Cart() {
 
   const [parcelMachines, setParcelMachines] = useState([]);
 
+  const [parcelMachineCountry, setParcelMachineCountry] = useState("EE")
+
   useEffect(() => {
     fetch("https://www.omniva.ee/locations.json")
     .then(res => res.json())
@@ -48,14 +50,23 @@ function Cart() {
       </div>)}
 
       <select>
+        <option>EE</option>
+        <option>LV</option>
+        <option>LT</option>
+      </select>
+
+      <select>
         {parcelMachines
-            .filter(pm => pm.A0_NAME === "EE")
+            .filter(pm => pm.A0_NAME === parcelMachineCountry)
             .map(pm=>
           <option key={pm.NAME}>
             {pm.NAME}
           </option>
         )}
       </select>
+      <button onClick={() => setParcelMachineCountry("EE")}>EE</button>
+      <button onClick={() => setParcelMachineCountry("LV")}>LV</button>
+      <button onClick={() => setParcelMachineCountry("LT")}>LT</button>
     </div>
   )
 }

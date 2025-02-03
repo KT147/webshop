@@ -1,5 +1,6 @@
 import { useRef } from "react"
 import productsFromFile from "../../data/products.json"
+import categoriesJSON from "../../data/categories.json"
 
 
 function AddProduct() {
@@ -54,7 +55,13 @@ function AddProduct() {
       <label>Description:</label><br />
       <input ref={descriptionRef} type="text" /><br /><br />
       <label>Category:</label><br />
-      <input ref={categoryRef} type="text"/><br /><br />
+      {/* <input ref={categoryRef} type="text"/><br /><br /> */}
+      <select defaultValue={"DEFAULT"} ref={categoryRef}>
+        <option value="DEFAULT" disabled>Select Category</option>
+        {categoriesJSON.map(category=>
+          <option key={category}>{category}</option>
+      )}
+      </select> <br /><br />
       <label>Image:</label><br />
       <input ref={imageRef} type="text" /><br /><br />
       <label>Rating Rate:</label><br />

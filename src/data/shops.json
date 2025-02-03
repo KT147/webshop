@@ -2,43 +2,49 @@
     {
         "name": "Kristiine",
         "lat": 59.4273,
-        "long" : 24.7231,
-        "address" : "Endla 45, 10615 Tallinn",
-        "href" : "https://www.google.ee/maps/place/Kristiine+Keskus/@59.427247,24.7205042,17z/data=!3m1!4b1!4m6!3m5!1s0x4692948ff56ecd75:0x4f0fde99c451563a!8m2!3d59.4272443!4d24.7230791!16s%2Fm%2F0w7mjwq?entry=ttu&g_ep=EgoyMDI1MDEyNy4wIKXMDSoASAFQAw%3D%3D"
+        "long": 24.7231,
+        "town": "Tallinn",
+        "address": "Endla 45, 10615 Tallinn",
+        "href": "https://www.google.ee/maps/place/Kristiine+Keskus/@59.427247,24.7205042,17z/data=!3m1!4b1!4m6!3m5!1s0x4692948ff56ecd75:0x4f0fde99c451563a!8m2!3d59.4272443!4d24.7230791!16s%2Fm%2F0w7mjwq?entry=ttu&g_ep=EgoyMDI1MDEyNy4wIKXMDSoASAFQAw%3D%3D"
     },
     {
         "name": "Kotka Kauplus",
         "lat": 59.4396,
-        "long" : 24.8327,
-        "address" : "P. Pinna tn 21, 13615 Tallinn",
-        "href" : "https://www.google.ee/maps/place/Kotka+kauplus/@59.4395177,24.8301077,17z/data=!3m1!4b1!4m6!3m5!1s0x4692ecb9cba3ce7d:0xda07991d1f25a246!8m2!3d59.439515!4d24.8326826!16s%2Fg%2F1hjgn62lc?entry=ttu&g_ep=EgoyMDI1MDEyNy4wIKXMDSoASAFQAw%3D%3D"
+        "long": 24.8327,
+        "address": "P. Pinna tn 21, 13615 Tallinn",
+        "town": "Lasnamäe",
+        "href": "https://www.google.ee/maps/place/Kotka+kauplus/@59.4395177,24.8301077,17z/data=!3m1!4b1!4m6!3m5!1s0x4692ecb9cba3ce7d:0xda07991d1f25a246!8m2!3d59.439515!4d24.8326826!16s%2Fg%2F1hjgn62lc?entry=ttu&g_ep=EgoyMDI1MDEyNy4wIKXMDSoASAFQAw%3D%3D"
     },
     {
         "name": "Auriga Keskus",
         "lat": 58.2655,
-        "long" : 22.5153,
-        "address" : "Tallina tn 88, Kaarma vald, 93851 Saare maakond",
-        "href" : "https://www.google.ee/maps/place/Auriga/@58.2654059,22.5126988,17z/data=!3m1!4b1!4m6!3m5!1s0x46f26da87fd9aed9:0x6313d03684d03fd1!8m2!3d58.2654031!4d22.5152737!16s%2Fg%2F1tjtgzdf?entry=ttu&g_ep=EgoyMDI1MDEyNy4wIKXMDSoASAFQAw%3D%3D"
+        "long": 22.5153,
+        "address": "Tallina tn 88, Kaarma vald, 93851 Saare maakond",
+        "town": "Kuressaare",
+        "href": "https://www.google.ee/maps/place/Auriga/@58.2654059,22.5126988,17z/data=!3m1!4b1!4m6!3m5!1s0x46f26da87fd9aed9:0x6313d03684d03fd1!8m2!3d58.2654031!4d22.5152737!16s%2Fg%2F1tjtgzdf?entry=ttu&g_ep=EgoyMDI1MDEyNy4wIKXMDSoASAFQAw%3D%3D"
     },
     {
         "name": "Lõunakeskus",
         "lat": 58.3589,
-        "long" : 26.6771,
-        "address" : "Lääneringtee 39, 50501 Tartu",
-        "href" : "https://www.google.ee/maps/place/L%C3%B5unakeskus/@58.3587984,26.6745535,17z/data=!3m1!4b1!4m6!3m5!1s0x46eb37729805dd0d:0xee4647d795759e63!8m2!3d58.3587956!4d26.6771284!16s%2Fg%2F125_ht3k7?entry=ttu&g_ep=EgoyMDI1MDEyNy4wIKXMDSoASAFQAw%3D%3D"
+        "long": 26.6771,
+        "address": "Lääneringtee 39, 50501 Tartu",
+        "town": "Tartu",
+        "href": "https://www.google.ee/maps/place/L%C3%B5unakeskus/@58.3587984,26.6745535,17z/data=!3m1!4b1!4m6!3m5!1s0x46eb37729805dd0d:0xee4647d795759e63!8m2!3d58.3587956!4d26.6771284!16s%2Fg%2F125_ht3k7?entry=ttu&g_ep=EgoyMDI1MDEyNy4wIKXMDSoASAFQAw%3D%3D"
     },
     {
         "name": "Gränbystaden",
         "lat": 59.8780,
-        "long" : 17.6743,
-        "address" : "Marknadsgatan 1, 754 60 Uppsala, Rootsi",
-        "href" : "https://www.google.ee/maps/search/Gr%C3%A4nbystaden/@59.8770641,17.6437976,14z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDEyNy4wIKXMDSoASAFQAw%3D%3D"
+        "long": 17.6743,
+        "address": "Marknadsgatan 1, 754 60 Uppsala, Rootsi",
+        "town": "Uppsala",
+        "href": "https://www.google.ee/maps/search/Gr%C3%A4nbystaden/@59.8770641,17.6437976,14z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDEyNy4wIKXMDSoASAFQAw%3D%3D"
     },
     {
         "name": "Kärdla keskus",
         "lat": 58.9991,
-        "long" : 22.7471,
-        "address" : "Keskväljak 1, Kärdla, 92413 Hiiu maakond",
-        "href" : "https://www.google.ee/maps/place/COOP+Hiiu+Konsum/@58.9985618,22.7293858,15z/data=!3m1!5s0x46f2c3d674f269a7:0xa7629cb526cbd86b!4m10!1m2!2m1!1sk%C3%A4rdla+coop!3m6!1s0x46f2c366bde6228b:0x578f727e64a1e632!8m2!3d58.9985618!4d22.7468953!15sCgxrw6RyZGxhIGNvb3AiA4gBAVoOIgxrw6RyZGxhIGNvb3CSAQtzdXBlcm1hcmtldOABAA!16s%2Fg%2F11h5nc9z24?entry=ttu&g_ep=EgoyMDI1MDEyNy4wIKXMDSoASAFQAw%3D%3D"
+        "long": 22.7471,
+        "address": "Keskväljak 1, Kärdla, 92413 Hiiu maakond",
+        "town": "Kärdla",
+        "href": "https://www.google.ee/maps/place/COOP+Hiiu+Konsum/@58.9985618,22.7293858,15z/data=!3m1!5s0x46f2c3d674f269a7:0xa7629cb526cbd86b!4m10!1m2!2m1!1sk%C3%A4rdla+coop!3m6!1s0x46f2c366bde6228b:0x578f727e64a1e632!8m2!3d58.9985618!4d22.7468953!15sCgxrw6RyZGxhIGNvb3AiA4gBAVoOIgxrw6RyZGxhIGNvb3CSAQtzdXBlcm1hcmtldOABAA!16s%2Fg%2F11h5nc9z24?entry=ttu&g_ep=EgoyMDI1MDEyNy4wIKXMDSoASAFQAw%3D%3D"
     }
 ]

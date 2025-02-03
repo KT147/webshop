@@ -15,6 +15,9 @@ import MaintainShops from './pages/admin/MaintainShops'
 import Login from './pages/auth/Login'
 import Signup from './pages/auth/Signup'
 import NotFound from './pages/global/NotFound'
+import AddShops from './pages/admin/AddShops'
+import EditShops from './pages/admin/EditShops'
+import MaintainTowns from './pages/admin/MaintainTowns'
 
 function App() {
 
@@ -37,6 +40,10 @@ function App() {
         <Route path="/admin/maintain-products" element={ <MaintainProducts/> } />
         <Route path="/admin/maintain-categories" element={ <MaintainCategories/> } />
         <Route path="/admin/maintain-shops" element={ <MaintainShops/> } />
+        <Route path="/admin/add-shops" element={ <AddShops/> } />
+        <Route path="/admin/edit-shops/:name" element={ <EditShops/> } />
+        <Route path="/admin/maintain-towns" element={ <MaintainTowns/> } />
+      
 
         <Route path="/login" element={ <Login/> } />
         <Route path="/signup" element={ <Signup/> } />
