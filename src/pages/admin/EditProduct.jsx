@@ -20,9 +20,10 @@ function EditProduct() {
 
     const edit = () => {
         const productIndex = productsFromFile.findIndex(product => product.id === Number(id)) 
+        if (productIndex !== -1)
         productsFromFile[productIndex]= {
           "image": imageRef.current.value,
-          "id" : idRef.current.value,
+          "id" : found.id, //FOUND.ID aitab alati leida ühe ja sama toote üles
           "title" : titleRef.current.value,
           "price" : priceRef.current.value,
           "description" : descriptionRef.current.value,
