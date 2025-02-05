@@ -28,7 +28,7 @@ createRoot(document.getElementById('root')).render(
 // 10. Viimast korda veebipoodi: tõlked, Bootstrap, MUI, e-maili saatmine.
 // 11. Webshopi algus. CSS moodulid, otsing. karussell-galerii. Pakiautomaadid. Leaflet
 // 12. Leaflet nupud. Pakiautomaadi nupud. Leaflet vaate muutmine
-// 13. K 05.02
+// 13. Kogus ostukorvis, CSS
 // 14. E 10.02
 // 15. E 17.02
 // 16. N 20.02

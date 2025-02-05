@@ -12,9 +12,16 @@ function HomePage() {
 
   const [products, setProducts] = useState(productsFromFile);
 
-  const addToCart = (singleProduct) => {
+  const addToCart = (productClicked) => {
     const cartLS = JSON.parse(localStorage.getItem("cart")) || [];
-    cartLS.push(singleProduct)
+    const found = cartLS.find(cartProduct => cartProduct.specifiedProduct.id === productClicked.id)
+    if(found !== undefined) {
+      // suurenda kogust
+      found.specifiedQuantity++
+    } else {
+      // lisa lõppu.
+      cartLS.push({"specifiedQuantity": 1, "specifiedProduct": productClicked})
+    }
     localStorage.setItem("cart", JSON.stringify(cartLS))
     toast.success("Added to cart!")
   }

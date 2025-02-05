@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useEffect } from "react";
+import styles from "../../css/Cart.module.css"
 
 
 function Cart() {
@@ -29,8 +30,26 @@ function Cart() {
 
   const calculateTotal = () => {
     let sum= 0;
-    products.forEach(product=> sum = sum + product.price)
+    products.forEach(product=> sum = sum + product.specifiedProduct.price * product.specifiedQuantity)
     return sum;
+  }
+
+  const decreaseQuantity = (product) => {
+      product.specifiedQuantity--
+      if (product.specifiedQuantity === 0) {
+        const index = products.indexOf(product) // terve objekti abil indexi leidmine
+        // const index = products. findIndex(p=> p.id === id) ühe omaduse abil indexi leidmine
+        // const found = products. find(p=> p.id === id) ühe omaduse abil objekti enda leidmine
+        deleteItem(index)
+      }
+      setProducts(products.slice())
+      localStorage.setItem("cart", JSON.stringify(products))
+  }
+
+  const increaseQuantity = (product) => {
+    product.specifiedQuantity++
+    setProducts(products.slice())
+    localStorage.setItem("cart", JSON.stringify(products))
   }
 
   return (
@@ -42,20 +61,29 @@ function Cart() {
       <br />
       <br />
       {products.map((product,index)=>
-      <div key={index}>
-        <img style={{width: "100px"}} src={product.image} alt="" />
-        <div>{product.title}</div>
-        <div>{product.price} €</div> <br />
-        <button onClick={() => deleteItem(index)}>Delete item</button> <br /><br />
+      <div key={index} className={styles.product}>
+        <img className={styles.image} src={product.specifiedProduct.image} alt="" />
+        <div className={styles.title}>{product.specifiedProduct.title}</div>
+        <div className={styles.price}>{product.specifiedProduct.price} €</div>
+        <div className={styles.quantity}>
+          <img onClick={() => decreaseQuantity(product)} className="icon" src="/minus.png" alt="" />
+          <div>{product.specifiedQuantity} pcs</div> 
+          <img onClick={() => increaseQuantity(product)} className="icon" src="/plus.png" alt="" />
+        </div>
+        <div className={styles.price}>{product.specifiedProduct.price * product.specifiedQuantity} €</div> <br />
+        {/* <button className={styles.button} onClick={() => deleteItem(index)}>Delete item</button> <br /><br /> */}
+        <img onClick={() => deleteItem(index)} className="icon" src="/delete.png" alt="" />
       </div>)}
 
+      {products.length > 0 && 
+      <div>
       <select>
         <option>EE</option>
         <option>LV</option>
         <option>LT</option>
       </select>
 
-      <select>
+        <select>
         {parcelMachines
             .filter(pm => pm.A0_NAME === parcelMachineCountry)
             .map(pm=>
@@ -67,6 +95,7 @@ function Cart() {
       <button onClick={() => setParcelMachineCountry("EE")}>EE</button>
       <button onClick={() => setParcelMachineCountry("LV")}>LV</button>
       <button onClick={() => setParcelMachineCountry("LT")}>LT</button>
+      </div>}
     </div>
   )
 }

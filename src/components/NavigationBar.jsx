@@ -31,8 +31,8 @@ function NavigationBar() {
             <Nav.Link as={Link} to="/login">{t("nav.login")}</Nav.Link>
             <Nav.Link as={Link} to="/signup">{t("nav.signup")}</Nav.Link>
           </Nav>
-          <button onClick={() => i18n.changeLanguage("en")} className='buttonlang'>English</button>
-          <button onClick={() => i18n.changeLanguage("et")} className='buttonlang'>Eesti keel</button>
+          <button className='buttonlang' onClick={() => i18n.changeLanguage("en")} ><img className="icon" src="/english.png" alt="" /></button>
+          <button className='buttonlang' onClick={() => i18n.changeLanguage("et")} ><img className="icon" src="/estonian.png" alt="" /></button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
