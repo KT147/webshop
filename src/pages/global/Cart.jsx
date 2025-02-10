@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useEffect } from "react";
 import styles from "../../css/Cart.module.css"
+import Payment from "../../components/Payment";
+import { ToastContainer, toast } from 'react-toastify';
 
 
 function Cart() {
@@ -14,6 +16,15 @@ function Cart() {
     fetch("https://www.omniva.ee/locations.json")
     .then(res => res.json())
     .then(json => setParcelMachines(json))
+  }, []);
+
+  useEffect(() => {
+    const paymentStarted = localStorage.getItem("paymentStarted");
+
+    if (paymentStarted === "true") {
+      toast.success('Payment was successful');
+      localStorage.removeItem("paymentStarted");
+    }
   }, []);
 
 
@@ -95,7 +106,21 @@ function Cart() {
       <button onClick={() => setParcelMachineCountry("EE")}>EE</button>
       <button onClick={() => setParcelMachineCountry("LV")}>LV</button>
       <button onClick={() => setParcelMachineCountry("LT")}>LT</button>
+      {calculateTotal() < 7000 ? <Payment sum={calculateTotal()}/> : <div>The sum is too large!</div>}
       </div>}
+
+      <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            />
     </div>
   )
 }

@@ -1,15 +1,18 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import productsFromFile from "../../data/products.json"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 // import { useRef } from "react"
 import categoriesJSON from "../../data/categories.json"
 import { useState } from "react"
+import { ToastContainer, toast } from 'react-toastify';
 
 function EditProduct() {
 
     const {id} = useParams()
     const found = productsFromFile.find(product => product.id === Number(id))
     const [product, setProduct] = useState(found)
+
+    const navigate = useNavigate()
 
     // const imageRef= useRef()
     // const idRef= useRef()
@@ -21,8 +24,14 @@ function EditProduct() {
     // const productCountRef= useRef()
 
     const edit = () => {
+        if (product.price < 0) {
+          toast.error("Hind ei saa olla negatiivne!")
+          return
+        }
         const productIndex = productsFromFile.findIndex(product => product.id === Number(id)) 
         productsFromFile[productIndex] = product
+
+        navigate("/admin/maintain-products")
         // if (productIndex !== -1)
         // productsFromFile[productIndex]= {
         //   "image": imageRef.current.value,
@@ -72,9 +81,22 @@ function EditProduct() {
       <label>Product:</label>
       <input onChange={(e) => setProduct({...product, "rating": {"rate": e.target.value, "count": product.rating.count}})} defaultValue={found.rating.rate} placeholder="Rating" type="number" />
       <input onChange={(e) => setProduct({...product, "rating": {"rate": e.target.value, "count": product.rating.count}})} defaultValue={found.rating.count} placeholder="Count" type="number" /><br /><br />
-      <Link to="/admin/maintain-products">
+      {/* <Link to="/admin/maintain-products"> */}
       <button className="button" onClick={edit}>Edit</button>
-      </Link>
+      {/* </Link> */}
+
+      <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            />
     </div>
   )
 }

@@ -29,13 +29,10 @@ createRoot(document.getElementById('root')).render(
 // 11. Webshopi algus. CSS moodulid, otsing. karussell-galerii. Pakiautomaadid. Leaflet
 // 12. Leaflet nupud. Pakiautomaadi nupud. Leaflet vaate muutmine
 // 13. Kogus ostukorvis, CSS
-// 14. E 10.02
-// 15. E 17.02
-// 16. N 20.02
-// 17. N 27.02
-// 18. N 13.03 
+// 14. Makse, Props -> andmete saatmine komponentide vahel, Modal
+// 15. E 17.02 Context: ostukorvisumma navbaris + auth
+// 16. N 20.02 Back-end
+// 17. N 27.02 TypeScript
+// 18. N 13.03 9.00-10.30 lõpuprojekti esitlemine
 
 // KOJU:
-// EditProductis Dropdownist kategooria.
-// Maintainshops
-// proovitöö

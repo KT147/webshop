@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import CarouselGallery from "../../components/CarouselGallery";
 import styles from "../../css/HomePage.module.css";
 import { useTranslation } from 'react-i18next';
+import SortButtons from "../../components/SortButtons";
 
 function HomePage() {
 
@@ -26,35 +27,6 @@ function HomePage() {
     toast.success("Added to cart!")
   }
 
-  const sortAZ = () => {
-    const result =products.toSorted((a,b) => a.title.localeCompare(b.title))
-    setProducts(result)
-  }
-
-  const sortZA = () => {
-    const result = products.toSorted((a,b) => b.title.localeCompare(a.title))
-    setProducts(result)
-  }
-
-  const priceIncrease = () => {
-    const result = products.toSorted((a,b) => a.price - b.price)
-    setProducts(result)
-  }
-
-  const priceDecrease = () => {
-    const result = products.toSorted((a,b) => b.price-a.price)
-    setProducts(result)
-  }
-
-  const ratingIncrease = () => {
-    const result = products.toSorted((a,b) => a.rating.rate - b.rating.rate)
-    setProducts(result)
-  }
-
-  const ratingDecrease = () => {
-    const result = products.toSorted((a,b) => b.rating.rate - a.rating.rate)
-    setProducts(result)
-  }
 //const result = products.filter(product=> product.category.includes("men's clothing")) <-- EI TÖÖTA! VÕTAB KA WOMEN'S CLOTHING
   const filterMenClothes = () => {
     const result = products.filter(product=> product.category === "men's clothing")
@@ -84,13 +56,7 @@ function HomePage() {
     <div className="products">
       <CarouselGallery/>
       <br />
-      <span>{t("home.sort")}</span>
-      <button className="button" onClick={sortAZ}>A-Z</button>
-      <button className="button" onClick={sortZA}>Z-A</button>
-      <button className="button" onClick={priceIncrease}>{t("home.priceIncrease")}</button>
-      <button className="button" onClick={priceDecrease}>{t("home.priceDecrease")}</button>
-      <button className="button" onClick={ratingIncrease}>{t("home.ratingIncreasing")}</button>
-      <button className="button" onClick={ratingDecrease}>{t("home.ratingDecreasing")}</button>
+      <SortButtons products={products} setProducts={setProducts}/>
       <br /> <br />
       <span>Filter by Category:</span>
       <button className="button" onClick={filterMenClothes}>{t("home.menclothes")}</button>
