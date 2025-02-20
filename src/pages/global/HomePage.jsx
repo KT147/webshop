@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import productsFromFile from "../../data/products.json"
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
@@ -6,10 +6,13 @@ import CarouselGallery from "../../components/CarouselGallery";
 import styles from "../../css/HomePage.module.css";
 import { useTranslation } from 'react-i18next';
 import SortButtons from "../../components/SortButtons";
+import { CartSumContext } from "../../store/CartSumContext";
 
 function HomePage() {
 
   const { t } = useTranslation();
+
+  const {increase} = useContext(CartSumContext)
 
   const [products, setProducts] = useState(productsFromFile);
 
@@ -24,6 +27,7 @@ function HomePage() {
       cartLS.push({"specifiedQuantity": 1, "specifiedProduct": productClicked})
     }
     localStorage.setItem("cart", JSON.stringify(cartLS))
+    increase(productClicked.price)
     toast.success("Added to cart!")
   }
 

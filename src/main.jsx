@@ -6,11 +6,17 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import "./i18n"
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
+import { AuthContextProvider } from './store/AuthContext.jsx';
+import { CartSumContextProvider } from './store/CartSumContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <AuthContextProvider>
+        <CartSumContextProvider>
+          <App />
+       </CartSumContextProvider>
+      </AuthContextProvider>
     </BrowserRouter>
   </StrictMode>,
 )
@@ -30,9 +36,9 @@ createRoot(document.getElementById('root')).render(
 // 12. Leaflet nupud. Pakiautomaadi nupud. Leaflet vaate muutmine
 // 13. Kogus ostukorvis, CSS
 // 14. Makse, Props -> andmete saatmine komponentide vahel, Modal
-// 15. E 17.02 Context: ostukorvisumma navbaris + auth
-// 16. N 20.02 Back-end
-// 17. N 27.02 TypeScript
-// 18. N 13.03 9.00-10.30 lõpuprojekti esitlemine
+// 15. Context: ostukorvisumma navbaris + auth
+// 16. N 27.02 Back-end
+// 17. K 05.03 TypeScript
+// 18. K 12.03 9.00-10.30 lõpuprojekti esitlemine
 
 // KOJU:

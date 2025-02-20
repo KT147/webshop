@@ -19,7 +19,7 @@ function Signup() {
       <input ref={lastnameRef} type="text" /><br />
       <label>Gender</label><br />
       <input type="radio" id="male" name="gender" ref={genderRef}/>Male
-      <input type="radio" id="male" name="gender" ref={genderRef}/>Female<br />
+      <input type="radio" id="female" name="gender" ref={genderRef}/>Female<br />
       <label>Email</label><br />
       <input ref={emailRef} type="text" /><br />
       <label>Date of Birth</label><br />

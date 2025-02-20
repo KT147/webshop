@@ -1,14 +1,18 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useEffect } from "react";
 import styles from "../../css/Cart.module.css"
 import Payment from "../../components/Payment";
 import { ToastContainer, toast } from 'react-toastify';
+import { CartSumContext } from "../../store/CartSumContext";
 
 
 function Cart() {
-  const [products, setProducts] = useState(JSON.parse(localStorage.getItem("cart")) || [] );
 
-  const [parcelMachines, setParcelMachines] = useState([]);
+  const {decrease, increase, empty} = useContext(CartSumContext)
+
+  const [products, setProducts] = useState(JSON.parse(localStorage.getItem("cart")) || [] )
+
+  const [parcelMachines, setParcelMachines] = useState([])
 
   const [parcelMachineCountry, setParcelMachineCountry] = useState("EE")
 
@@ -29,6 +33,7 @@ function Cart() {
 
 
   const deleteItem = (index) =>{
+    decrease(products[index].specifiedProduct.price * products[index].quantity)
     products.splice(index,1)
     setProducts(products.slice())
     localStorage.setItem("cart", JSON.stringify(products))
@@ -37,6 +42,7 @@ function Cart() {
   const emptyCart = () => {
     setProducts([])
     localStorage.setItem("cart", JSON.stringify([]))
+    empty()
   }
 
   const calculateTotal = () => {
@@ -46,6 +52,7 @@ function Cart() {
   }
 
   const decreaseQuantity = (product) => {
+      decrease(product.specifiedProduct.price)
       product.specifiedQuantity--
       if (product.specifiedQuantity === 0) {
         const index = products.indexOf(product) // terve objekti abil indexi leidmine
@@ -58,6 +65,7 @@ function Cart() {
   }
 
   const increaseQuantity = (product) => {
+    increase(product.specifiedProduct.price)
     product.specifiedQuantity++
     setProducts(products.slice())
     localStorage.setItem("cart", JSON.stringify(products))

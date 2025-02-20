@@ -1,10 +1,20 @@
-import { useRef } from "react"
+import { useContext, useRef } from "react"
+import { AuthContext } from "../../store/AuthContext"
+import { useNavigate } from "react-router-dom"
 
 
 function Login() {
 
   const usernameRef = useRef()
   const passwordRef = useRef()
+  const {setLoggedIn} = useContext(AuthContext)
+  const navigate = useNavigate()
+
+  const login = () => {
+    setLoggedIn(true)
+    sessionStorage.setItem("token", "token123")
+    navigate("/admin")
+  }
 
   return (
     <div>
@@ -13,7 +23,7 @@ function Login() {
       <input ref={usernameRef} type="text" /><br />
       <label>Password</label><br />
       <input ref={passwordRef} type="password" /><br /><br />
-      <button className="button">Login</button>
+      <button onClick={login} className="button">Login</button>
     </div>
   )
 }
