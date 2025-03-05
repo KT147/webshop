@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import productsFromFile from "../../data/products.json"
+import { useContext, useState, useEffect } from "react";
+// import productsFromFile from "../../data/products.json"
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import CarouselGallery from "../../components/CarouselGallery";
@@ -14,7 +14,21 @@ function HomePage() {
 
   const {increase} = useContext(CartSumContext)
 
-  const [products, setProducts] = useState(productsFromFile);
+  const [products, setProducts] = useState([]);
+
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:8090/categories")
+    .then(res => res.json())
+    .then(json => setCategories(json))
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:8090/products")
+    .then(res => res.json())
+    .then(json => setProducts(json))
+  }, []);
 
   const addToCart = (productClicked) => {
     const cartLS = JSON.parse(localStorage.getItem("cart")) || [];
@@ -31,30 +45,50 @@ function HomePage() {
     toast.success("Added to cart!")
   }
 
-//const result = products.filter(product=> product.category.includes("men's clothing")) <-- EI TÖÖTA! VÕTAB KA WOMEN'S CLOTHING
-  const filterMenClothes = () => {
-    const result = products.filter(product=> product.category === "men's clothing")
-    setProducts(result)
-  }
+  const filterByCategory = (category) => {
+        fetch("http://localhost:8090/products-by-category?category=" + category)
+        .then(res => res.json())
+        .then(json => setProducts(json))
+      }
 
-  const filterWomenClothes = () => {
-    const result = products.filter(product=> product.category === "women's clothing")
-    setProducts(result)
-  }
+// //const result = products.filter(product=> product.category.includes("men's clothing")) <-- EI TÖÖTA! VÕTAB KA WOMEN'S CLOTHING
+//   const filterMenClothes = () => {
+//   //   const result = products.filter(product=> product.category === "men's clothing")
+//   //   setProducts(result)
+//   fetch("http://localhost:8090/products-by-category?category=men's clothing")
+//     .then(res => res.json())
+//     .then(json => setProducts(json))
+//   }
 
-  const filterElectronics = () => {
-    const result = products.filter(product=> product.category === "electronics")
-    setProducts(result)
-  }
+//   const filterWomenClothes = () => {
+//     // const result = products.filter(product=> product.category === "women's clothing")
+//     // setProducts(result)
+//     fetch("http://localhost:8090/products-by-category?category=women's clothing")
+//     .then(res => res.json())
+//     .then(json => setProducts(json))
+//   }
 
-  const filterJewelry = () => {
-    const result = products.filter(product=> product.category === "jewelery")
-    setProducts(result)
-  }
+//   const filterElectronics = () => {
+//     // const result = products.filter(product=> product.category === "electronics")
+//     // setProducts(result)
+//     fetch("http://localhost:8090/products-by-category?category=electronics")
+//     .then(res => res.json())
+//     .then(json => setProducts(json))
+//   }
 
-   const resetToOriginal = () =>{
-    setProducts(productsFromFile)
-   }
+//   const filterJewelry = () => {
+//     // const result = products.filter(product=> product.category === "jewelery")
+//     // setProducts(result)
+//     fetch("http://localhost:8090/products-by-category?category=jewelery")
+//     .then(res => res.json())
+//     .then(json => setProducts(json))
+//   }
+
+//    const resetToOriginal = () =>{
+//     fetch("http://localhost:8090/products")
+//     .then(res => res.json())
+//     .then(json => setProducts(json))
+//    }
 
   return (
     <div className="products">
@@ -63,11 +97,14 @@ function HomePage() {
       <SortButtons products={products} setProducts={setProducts}/>
       <br /> <br />
       <span>Filter by Category:</span>
-      <button className="button" onClick={filterMenClothes}>{t("home.menclothes")}</button>
+      {/* <button className="button" onClick={() => filterByCategory ("")}>{t("home.menclothes")}</button>
       <button className="button" onClick={filterWomenClothes}>{t("home.womenclothing")}</button>
       <button className="button" onClick={filterElectronics}>{t("home.electronics")}</button>
       <button className="button" onClick={filterJewelry}>{t("home.jewelry")}</button>
-      <button className="button" onClick={resetToOriginal}>{t("home.reset")}</button>
+      <button className="button" onClick={resetToOriginal}>{t("home.reset")}</button> */}
+      {categories. map (category => 
+        <button key={category} className="button" onClick={() => filterByCategory (category)}>{t(category)}</button>
+      )}
       <br /><br /><br />
       {products.map(product=>
         <div key={product.id}>

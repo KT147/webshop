@@ -1,5 +1,6 @@
 import { useRef } from "react"
 import shopsJSON from "../../data/shops.json"
+import townsJSON from "../../data/towns.json"
 import { ToastContainer, toast } from 'react-toastify';
 
 
@@ -43,10 +44,9 @@ function AddShops() {
         <label>Address</label> <br />
         <input ref={addressRef} type="text" /> <br />
         <label>City</label> <br />
-        <input ref={cityRef} type="text" /> <br />
-        {/* <select>
-            {shopsJSON.map(shop=> <option key={shop.town}>{shop.town}</option>)}
-        </select> <br /> */}
+        <select ref={cityRef} >
+            {townsJSON.map(town=> <option key={town}>{town}</option>)}
+        </select> <br />
         <label>HREF</label> <br />
         <input ref={hrefRef} type="text" /> <br />
         <button className="button" onClick={newShop}>Enter</button>
